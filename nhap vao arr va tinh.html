@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = []
+        let n = +prompt("Nhap n: ")
+        let m = +prompt("Nhap m: ")
+        let tbc = 0;
+        let tong = 0;
+        let count = 0;
+        for (let i = 0; i < n; i++) {
+            arr[i] = [];
+            for (let j = 0; j < m; j++) {
+                arr[i][j] = +prompt("Nhap: ");
+                document.write(arr[i][j] + " " + "<br>")
+                tong+=arr[i][j];
+                count++;
+            }
+        }
+        document.write("tbc la : " + (tong/count))
+
+        let max = arr[0][0];
+        for(let i = 0; i < n; i++){
+            for(let j = 0; j < m; j++){
+                if( arr[i][j] > max)
+                    max = arr[i][j]
+            }
+        }
+
+        document.write("<br> max la " +max )
+
+        let x = +prompt("Nhap X")
+        for(let i = 0; i < n; i++){
+            for(let j = 0; j < m; j++){
+                if ( x == arr[i][j])
+                document.write("<br> Vi tri cua x la: a [" + i + "]" +"[" + j + "]" )
+            }
+        }
+
+        let sum = 0;
+
+        for(let i = 0; i<n; i++){
+            for(let j = 0; j < m; j++){
+                if ( i == j )
+                sum += arr[i][j]
+            }
+        }
+        document.write("Tổng đường chéo là" + sum)
+
+    </script>
+</body>
+
+</html>

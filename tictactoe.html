@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="danh()">
+        Đánh
+    </button>
+    <div id="show"></div>
+    <script>
+        let arr = [
+            ['_', '_', '_'],
+            ['_', '_', '_'],
+            ['_', '_', '_']
+        ]
+        let str = '';
+        let turn = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                str += arr[i][j] + " ";
+            }
+            str += " <br>"
+        }
+        document.getElementById('show').innerHTML = str;
+
+        function danh() {
+            let i = +prompt("nhập hàng: ")
+            let j = +prompt("nhập cột: ")
+            let xo = '';
+            if (i > 2 || j > 2) alert("mất lượt")
+            else if (arr[i][j] == '_') {
+                if (turn % 2) {
+                    xo = "X"
+                } else {
+                    xo = "O"
+                }
+                arr[i][j] = xo;
+                turn++;
+            }
+            else {
+                alert("mất lượt")
+            }
+
+            let count = 0;
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i][i] == xo)
+                    count++;
+            }
+            if (count < 3) {
+                count = 0;
+            }
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i][2 - i] == xo)
+                    count++;
+            }
+            if ((arr[i][0] == xo && arr[i][1] == xo && arr[i][2] == xo) || (arr[0][j] == xo && arr[1][j] == xo && arr[2][j] == xo)) {
+                count = 3;
+            }
+
+            if (count == 3) {
+                alert(xo + " win")
+            }
+
+
+            let str = '';
+            for (let i = 0; i < arr.length; i++) {
+                for (let j = 0; j < arr[i].length; j++) {
+                    str += arr[i][j] + " ";
+                }
+                str += " <br>"
+            }
+            document.getElementById('show').innerHTML = str;
+        }
+    </script>
+</body>
+
+</html>

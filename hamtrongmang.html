@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let chu = [' mươi', ' mốt', " hai", " ba", " bốn", " năm", " sáu", " bảy", " tám", " chín"]
+        let so = +prompt("Nhập số ")
+        if (so < 0 || so > 99) {
+            alert("nhap tu 0 toi 99")
+        } else {
+            if (so < 10) {
+                switch (so) {
+                    case 0:
+                        alert("Không")
+                        break;
+                    case 1:
+                        alert("Một")
+                        break;
+                    default:
+                        alert(chu[so])
+                }
+            } else if (so < 20) {
+                let kq = "Mười "
+                switch (so % 10) {
+                    case 0:
+                        kq;
+                        break;
+                    case 1:
+                        kq += "Một"
+                        break;
+                    case 5:
+                        kq += "Lăm"
+                        break;
+                    default:
+                        kq += chu[so % 10];
+                }
+                alert(kq)
+            }
+            else {
+                let hangChuc = parseInt(so / 10)
+                let hangDV = so % 10;
+                kq = chu[hangChuc] + " Mươi"
+                if (hangDV == 0) {
+                    kq += "";
+                } else {
+                    kq += chu[hangDV]
+                }
+            }
+            alert(kq)
+        }
+
+    </script>
+</body>
+
+</html>
